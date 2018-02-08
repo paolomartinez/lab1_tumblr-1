@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mf9-oW-zwP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,6 +40,7 @@
                                         <color key="backgroundColor" red="0.12949806812691173" green="0.36399078836995707" blue="0.5235994170984456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="photoImageView" destination="DAe-YP-PAT" id="43f-JS-9Pp"/>
+                                            <segue destination="TwN-aK-rgm" kind="show" id="0lX-Zg-ZQ7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -48,13 +49,58 @@
                         <color key="backgroundColor" red="0.45975919095849904" green="0.7226479610705514" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="peD-Vn-oJi"/>
                     <connections>
                         <outlet property="tableView" destination="2sW-8s-Gd3" id="1BW-8q-OXT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+        <!--Photos Detail View Controller-->
+        <scene sceneID="xdC-DY-nWL">
+            <objects>
+                <viewController id="TwN-aK-rgm" customClass="PhotosDetailViewController" customModule="lab1_tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jGy-UH-JvS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oT9-j8-tcg">
+                                <rect key="frame" x="0.0" y="47" width="375" height="219"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.310689247470055" green="0.31036429680903521" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="wVa-jI-Ip3"/>
+                    </view>
+                    <connections>
+                        <outlet property="DetailPhotoView" destination="oT9-j8-tcg" id="QfQ-yj-OMk"/>
+                        <outlet property="detailPhotoView" destination="oT9-j8-tcg" id="6oY-Gl-PRF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRd-n7-VBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1356" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eaz-ze-HZ1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mf9-oW-zwP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0uH-yy-sdr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xOv-aW-jBh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q5l-pm-wSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-273" y="134"/>
         </scene>
     </scenes>
 </document>
