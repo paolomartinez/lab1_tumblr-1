@@ -32,7 +32,6 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print(error.localizedDescription)
             } else if let data = data,
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                print(dataDictionary)
                 // Get the dictionary from the response key
                 let responseDictionary = dataDictionary["response"] as! [String: Any]
                 // Store the returned array of dictionaries in our posts property
@@ -65,7 +64,6 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         profileView.af_setImage(withURL: URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/avatar")!)
         headerView.addSubview(profileView)
         
-        
         //create the frame that the UILabel text will be placed in
         let label = UILabel(frame: CGRect(x: 50, y: 10, width: 300, height: 30))
         //retrieve the timeStamp of the post from the Epoch and calculate it's date
@@ -78,7 +76,6 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
         dateFormatter.dateStyle = .medium
         label.text = "\(dateFormatter.string(from: date))"
         headerView.addSubview(label)
-        
         return headerView
     }
     
@@ -111,8 +108,8 @@ class PhotosViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if let photos = post["photos"] as? [[String: Any]] {
                 let photo = photos[0]
                 destinationViewController.photo = photo
+//                destinationViewController.caption = photo["caption"]
             }
-            
         }
     }
     

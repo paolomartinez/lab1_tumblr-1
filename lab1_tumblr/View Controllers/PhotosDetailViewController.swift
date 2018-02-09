@@ -20,7 +20,7 @@ class PhotosDetailViewController: UIViewController {
         super.viewDidLoad()
         if let photo = photo {
             let originalSize = photo["original_size"] as! [String: Any]
-            urlString = originalSize["url"] as! String
+            urlString = originalSize["url"] as? String
             let url = URL(string: urlString!)
             detailPhotoView.isUserInteractionEnabled = true
             detailPhotoView.af_setImage(withURL: url!)
