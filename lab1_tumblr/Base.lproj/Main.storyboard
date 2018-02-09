@@ -70,19 +70,75 @@
                                 <rect key="frame" x="0.0" y="47" width="375" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.310689247470055" green="0.31036429680903521" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="vLH-D1-q3X" appends="YES" id="fv8-NB-TkV"/>
+                                </connections>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.28194800019264221" green="0.48030871152877808" blue="0.66183584928512573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="wVa-jI-Ip3"/>
                     </view>
                     <connections>
                         <outlet property="DetailPhotoView" destination="oT9-j8-tcg" id="QfQ-yj-OMk"/>
                         <outlet property="detailPhotoView" destination="oT9-j8-tcg" id="6oY-Gl-PRF"/>
+                        <outlet property="photoPressed" destination="vLH-D1-q3X" id="ReX-TS-Cft"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRd-n7-VBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vLH-D1-q3X">
+                    <connections>
+                        <segue destination="VLJ-sb-6wc" kind="presentation" identifier="bigPictureSegue" id="v4F-QE-B5l"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1356" y="134"/>
+        </scene>
+        <!--Full Screen Photo View Controller-->
+        <scene sceneID="H8G-Ox-5cc">
+            <objects>
+                <viewController id="VLJ-sb-6wc" customClass="FullScreenPhotoViewController" customModule="lab1_tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XrV-fG-Gid">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" maximumZoomScale="6" translatesAutoresizingMaskIntoConstraints="NO" id="jMC-KN-nUk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="268"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ILA-2G-Qvu">
+                                        <rect key="frame" x="8" y="28" width="359" height="195"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.13080870632308739" blue="0.1155373926349702" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.28194800019264221" green="0.48030871152877808" blue="0.66183584928512573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d4-LW-fa8">
+                                <rect key="frame" x="141" y="287" width="56" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="VLJ-sb-6wc" eventType="touchDown" id="mQd-MM-tZV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29345786571502686" green="0.48823684453964233" blue="0.67371708154678345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="j9c-8Z-7kt"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="jMC-KN-nUk" id="dmb-vu-5WI"/>
+                        <outlet property="zoomableImage" destination="ILA-2G-Qvu" id="bzS-If-yvm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LJ6-Ep-263" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2618.4000000000001" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eaz-ze-HZ1">

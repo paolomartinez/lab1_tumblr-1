@@ -10,31 +10,35 @@ import UIKit
 
 class PhotosDetailViewController: UIViewController {
 
-//    var post: [[String: Any]]?
     var photo: [String: Any]?
+    var urlString: String?
     
-    
-    
+    @IBOutlet var photoPressed: UITapGestureRecognizer!
     @IBOutlet weak var detailPhotoView: UIImageView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let photo = photo {
             let originalSize = photo["original_size"] as! [String: Any]
-            let urlString = originalSize["url"] as! String
-            let url = URL(string: urlString)
+            urlString = originalSize["url"] as! String
+            let url = URL(string: urlString!)
+            detailPhotoView.isUserInteractionEnabled = true
             detailPhotoView.af_setImage(withURL: url!)
         }
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! FullScreenPhotoViewController
+        if let urlString = urlString {
+            destination.photoURLString = urlString
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     /*
     // MARK: - Navigation
 
